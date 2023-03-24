@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import state from "../../redux/store";
 import {useNavigate} from "react-router";
-import style from './MainPage.module.css'
+import style from './MainPage.module.css';
 
 const MainPage = () => {
     const navigate = useNavigate();

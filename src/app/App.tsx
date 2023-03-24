@@ -1,11 +1,10 @@
 import React from 'react';
-import Routs from "./router/Routes";
+import {AppRouter} from "./router/";
+
 const App = () => {
-
-
     return (
         <div>
-            <Routs />
+            <AppRouter />
         </div>
     );
 };

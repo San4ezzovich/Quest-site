@@ -8,6 +8,7 @@ export const buildPlugins = (opts: BuildOptions): webpack.WebpackPluginInstance[
     } = opts;
 
     return [
+        new webpack.ProgressPlugin(),
         new HtmlWebpackPlugin({
             template: paths.html
         })

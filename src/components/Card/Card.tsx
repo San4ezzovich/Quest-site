@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import style from './Card.module.css'
 import {stopExplanation} from "../../redux/rootReducer";
 import {useDispatch} from "react-redux";

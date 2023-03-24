@@ -1,10 +1,10 @@
 import React from 'react';
 import {Route, Routes} from 'react-router-dom';
-import MainPage from "../pages/MainPage/MainPage";
-import FirstLevel from "../pages/FirstLevel/FirstLevel";
+import MainPage from "../../../pages/MainPage/MainPage";
+import FirstLevel from "../../../pages/FirstLevel/FirstLevel";
 
 
-const Routs = () => {
+const AppRouter = () => {
     return (
         <Routes>
             <Route path='/' element={<MainPage/>}/>
@@ -13,4 +13,4 @@ const Routs = () => {
     );
 };
 
-export default Routs;
+export { AppRouter };

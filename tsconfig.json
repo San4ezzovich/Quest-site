@@ -4,16 +4,13 @@
     "moduleResolution": "node",
     "module": "ESNext",
     "target": "es5",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "noImplicitAny": true,
     "allowJs": true,
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
   },
-  "exclude": [
-    "./src/"
-  ],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
