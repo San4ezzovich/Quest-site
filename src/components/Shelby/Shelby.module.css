@@ -1,0 +1,83 @@
+.shelby {
+    background-color: white;
+    border-radius: 100%;
+    animation: ball 2s linear 0s 1 normal forwards;
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    width:100px;
+    height:100px;
+}
+.message{
+    position: absolute;
+    border: 1px solid WHITE;
+    border-radius: 20px;
+    padding: 20px 30px;
+    font-size: 25px;
+    text-align: right;
+    min-width: 250px;
+    max-height: 800px;
+    bottom:150px;
+    z-index: 0;
+    right: 0;
+    opacity: 1;
+}
+
+.message::before{
+    content:'';
+    position: absolute;
+    z-index: -1;
+    bottom: -18.5px;
+    right: 30px;
+    background-color: #1a1a1a;
+    width: 35px;
+    height: 35px;
+    border-bottom: 1px solid white;
+    border-right: 1px solid white;
+    transform: rotate(45deg);
+}
+
+
+@keyframes ball {
+    0% {
+        animation-timing-function: ease-in;
+        opacity: 0;
+        transform: translateY(-150vh);
+    }
+
+    38% {
+        animation-timing-function: ease-out;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    55% {
+        animation-timing-function: ease-in;
+        transform: translateY(-60vh);
+    }
+
+    72% {
+        animation-timing-function: ease-out;
+        transform: translateY(0);
+    }
+
+    81% {
+        animation-timing-function: ease-in;
+        transform: translateY(-30vh);
+    }
+
+    90% {
+        animation-timing-function: ease-out;
+        transform: translateY(0);
+    }
+
+    95% {
+        animation-timing-function: ease-in;
+        transform: translateY(-15vh);
+    }
+
+    100% {
+        animation-timing-function: ease-out;
+        transform: translateY(0);
+    }
+}
