@@ -44,6 +44,7 @@ const Shelby = () => {
         }, 2000)
 
     }
+    // some code
 
     useEffect(() => {
         const delay = async () => {
