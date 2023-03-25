@@ -1,24 +1,22 @@
-import React, {useEffect, useState} from 'react';
-import style from "./Shelby.module.css";
-import {useDispatch, useSelector} from "react-redux";
-import store, {explanationAction, stopExplanation} from "../../redux/rootReducer";
-import state from "../../redux/store";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import style from './Shelby.module.css';
+import store, { explanationAction, stopExplanation } from '../../redux/rootReducer';
+import state from '../../redux/store';
 
 const Shelby = () => {
-
-    const [isHovered, setIsHovered] = useState(true);
-    const [animation, setAnimation] = useState('');
-
+    const [ isHovered ] = useState(true);
+    const [ animation, setAnimation ] = useState('');
 
     const dispatch = useDispatch();
-    const message = useSelector((state: any) => store.getState().firstLevel.text);
+    const message = useSelector((_: any) => store.getState().firstLevel.text);
     // let timeoutRef: any = useRef(null);
     // const stop = useSelector(state => store.getState().firstLevel.stopExplanation)
-    console.log(stop)
+    // console.log(stop);
     const hovered = {
         opacity: isHovered ? '0' : '1',
-        animation: animation,
-    }
+        animation,
+    };
     // const handleMouseOver = (event: any) => {
     //     if (event.target === event.currentTarget) {
     //         timeoutRef.current = setTimeout(() => {
@@ -38,40 +36,39 @@ const Shelby = () => {
     // }
 
     const change = () => {
-        setAnimation('message 1s ease 0s 1 normal forwards')
+        setAnimation('message 1s ease 0s 1 normal forwards');
         setTimeout(() => {
-            setAnimation('message-out 1s ease 0s 1 normal forwards')
-        }, 2000)
-
-    }
+            setAnimation('message-out 1s ease 0s 1 normal forwards');
+        }, 2000);
+    };
 
     useEffect(() => {
         const delay = async () => {
-
             // @ts-ignore
             dispatch(explanationAction());
             for (let i = 0; i < state.messages.firstLevel.explanation.length; i++) {
-                if (stop){
-                    break;
-                }
-                await new Promise<void>(resolve => setTimeout(() => {
-                    change();
-                    resolve();
-                }, 3000));
+                // if (stop) {
+                //     break;
+                // }
+                // await new Promise<void>((resolve) => setTimeout(() => {
+                //     change();
+                //     resolve();
+                // }, 3000));
             }
         };
         delay();
-    }, []);
-
+    }, [ dispatch ]);
 
     return (
-        <div className={style.shelby}
-             // onMouseOver={handleMouseOver}
-             // onMouseOut={handleMouseOut}
-            onClick={()=>dispatch(stopExplanation())}
+        <div
+            className={ style.shelby }
+            // onMouseOver={handleMouseOver}
+            // onMouseOut={handleMouseOut}
+            onClick={ () => dispatch(stopExplanation()) }
         >
-            <div className={`${style.message}`}
-                 style={hovered}
+            <div
+                className={ `${style.message}` }
+                style={ hovered }
             >
                 {message}
             </div>
