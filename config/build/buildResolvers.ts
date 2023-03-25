@@ -1,5 +1,17 @@
-import webpack from "webpack";
+import webpack from 'webpack';
+import { BuildOptions } from './types/config';
 
-export const buildResolvers = (): webpack.ResolveOptions => ({
-    extensions: [ '.tsx', '.ts', '.js' ],
-})
+export const buildResolvers = (opts: BuildOptions): webpack.ResolveOptions => {
+    const { paths } = opts;
+
+    return {
+        extensions: [ '.tsx', '.ts', '.js' ],
+        alias: {
+            '@': paths.src,
+            '@app': `${paths.src}/app`,
+            '@pages': `${paths.src}/pages`,
+            '@components': `${paths.src}/components`,
+            '@shared': `${paths.src}/shared`,
+        },
+    };
+};
